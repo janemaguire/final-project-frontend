@@ -16,6 +16,8 @@
           Final Project
           <ul class="nav navbar-nav">
             <li class="nav-item"><a ui-sref="usersIndex">All Users</a></li>
+            <li class="nav-item"><a ui-sref="propsIndex">All Props</a></li>
+            <li class="nav-item"><a ui-sref="categoriesIndex">All Categories</a></li>
             <li class="nav-item" ng-if="!main.isLoggedIn()"><a ui-sref="login">Login</a></li>
             <li class="nav-item" ng-if="!main.isLoggedIn()"><a ui-sref="register">Register</a></li>
             <li class="nav-item" ng-if="main.isLoggedIn()"><a ng-click="main.logout()">Logout</a></li>

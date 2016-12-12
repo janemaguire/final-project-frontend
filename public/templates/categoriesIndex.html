@@ -1,0 +1,10 @@
+<section>
+  <h1>Categories Index</h1>
+  <ul>
+    <li ng-repeat="category in categoriesIndex.all">
+      <a ui-sref="categoriesShow({ id: category.id })">
+        <h2>{{ category.name }}</h2>
+      </a>
+    </li>
+  </ul>
+</section>

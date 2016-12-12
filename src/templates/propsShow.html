@@ -1,0 +1,9 @@
+<section class = "show">
+  <br>
+  <h2>{{ propsShow.prop.name }}</h2>
+  <p>{{ propsShow.prop.description }}</p>
+  <br>
+  <button ng-if="main.isLoggedIn()" ui-sref="propsEdit({id: propsShow.user.id})" class="btn btn-primary">Edit</button>
+  <button ng-if="main.isLoggedIn()" ng-click="propsShow.delete()" class="btn btn-primary">Delete</button>
+  <br>
+</section>

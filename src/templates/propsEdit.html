@@ -1,0 +1,23 @@
+<section class="edit">
+  <form ng-submit="propsEdit.update()">
+    <div>
+      <label>Name</label>
+      <input type="text" name="name" placeholder="Name" ng-model="propsEdit.prop.propname" class="u-full-width">
+    </div>
+    <div>
+      <label>Description</label>
+      <input type="text" name="description" placeholder="Description" ng-model="propsEdit.prop.description" class="u-full-width">
+    </div>
+    <div>
+      <label>Image</label>
+      <input type="text" name="image" placeholder="Image" ng-model="propsEdit.prop.image" class="u-full-width">
+    </div>
+    <div>
+      <label>Available</label>
+      <input type="radio" name="available" value="available" ng-model="propsEdit.prop.available">
+      <input type="radio" name="available" value="unavailable" ng-model="propsEdit.prop.available">
+    </div>
+    <br>
+    <button class="btn btn-primary">Update</button>
+  </form>
+</section>

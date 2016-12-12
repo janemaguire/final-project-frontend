@@ -1,0 +1,11 @@
+<section>
+  <h1>Props Index</h1>
+  <ul>
+    <li ng-repeat="prop in propsIndex.all">
+      <a ui-sref="propsShow({ id: prop.id })">
+        <h2>{{ prop.name }}</h2>
+      </a>
+        <h4>{{ prop.description }}</h4>
+    </li>
+  </ul>
+</section>
