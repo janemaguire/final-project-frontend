@@ -3,10 +3,12 @@
   <ul>
     <li ng-repeat="user in usersIndex.all">
       <a ui-sref="usersShow({ id: user.id })">
-        <h2>{{ user.username }}</h2>
-      </a>
-        <h4>{{ user.email }}</h4>
-        <h4>{{ user.props[0].name }}</h4>
+        <h2>{{ user.username }}</h2></a>
+        <p>
+          <img ng-src="{{ user.image }}">
+        </p>
+        <p>{{ user.address }}</p>
+        <p>{{ user.phone }}</p>
     </li>
   </ul>
 </section>

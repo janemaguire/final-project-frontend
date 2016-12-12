@@ -1,8 +1,12 @@
 <section class = "show">
   <br>
   <h2>{{ usersShow.user.username }}</h2>
-  <h4>{{ usersShow.user.email }}</h4>
+  <p><img ng-src="{{ usersShow.user.image }}"></p>
+  <p>{{ usersShow.user.address }}</p>
+  <p>{{ usersShow.user.phone }}</p>
+  <p>{{ usersShow.user.email }}</p>
   <br>
+  <h4>All props</h4>
   <ul>
     <li ng-repeat="prop in usersShow.user.props">
       <a ui-sref="propsShow({ id: prop.id })">
@@ -10,7 +14,7 @@
       </a>
     </li>
   </ul>
-  <button ng-if="main.isLoggedIn()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Edit</button>
-  <button ng-if="main.isLoggedIn()" ng-click="usersShow.delete()" class="btn btn-primary">Delete</button>
+  <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Edit</button>
+  <button ng-if="usersShow.isCurrentUser()" ng-click="usersShow.delete()" class="btn btn-primary">Delete</button>
   <br>
 </section>

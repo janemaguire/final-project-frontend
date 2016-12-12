@@ -17,19 +17,21 @@ function MainController($auth, $state, $rootScope, User) {
 
   const protectedStates = ['usersEdit'];
 
-  function secureState(e, toState) {
+  function secureState(e, toState, toParams) {
     main.message = null;
-    if(!$auth.isAuthenticated() && protectedStates.includes(toState.name)) {
+    if((!$auth.isAuthenticated() && protectedStates.includes(toState.name)) ||
+    toState.name === 'usersEdit' && (parseFloat(toParams.id) !== $auth.getPayload().id)) {
       e.preventDefault();
       $state.go('login');
       main.message = 'You must be logged in to go there';
     }
+
     if ($auth.isAuthenticated()) {
       const userId = $auth.getPayload().id;
       main.currentUser = User.get({id: userId});
     }
-
   }
+
   $rootScope.$on('$stateChangeStart', secureState);
 
   main.logout = logout;
