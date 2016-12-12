@@ -1,13 +1,38 @@
 angular.module('finalProject')
   .controller('PropsIndexController', PropsIndexController)
   .controller('PropsShowController', PropsShowController)
-  .controller('PropsEditController', PropsEditController);
+  .controller('PropsEditController', PropsEditController)
+  .controller('PropsNewController', PropsNewController);
 
 PropsIndexController.$inject = ['Prop'];
 function PropsIndexController(Prop) {
   const propsIndex = this;
 
   propsIndex.all = Prop.query();
+}
+
+PropsNewController.$inject = ['Prop', '$state'];
+function PropsNewController(Prop, $state) {
+  const propsNew = this;
+  propsNew.prop = {};
+
+  function createProp() {
+    Prop.save(propsNew.prop, () => {
+      $state.go('propsNew');
+    });
+
+    // function submit() {
+    //   createProp()
+    //     .then(() => {
+    //       $state.go('propsIndex');
+    //     });
+    // }
+    //
+    //
+    // propsNew.submit = submit;
+
+  }
+  propsNew.create = createProp;
 }
 
 PropsShowController.$inject = ['Prop', '$state', '$auth'];
@@ -32,13 +57,20 @@ function PropsShowController(Prop, $state, $auth) {
   propsShow.delete = deleteProp;
 }
 
-PropsEditController.$inject = ['Prop', '$state', 'Category'];
-function PropsEditController(Prop, $state, Category) {
+PropsEditController.$inject = ['Prop', '$state', 'Category', '$auth'];
+function PropsEditController(Prop, $state, Category, $auth) {
   const propsEdit = this;
 
   propsEdit.categories = Category.query();
 
-  propsEdit.prop = Prop.get($state.params);
+  Prop.get($state.params).$promise.then((prop) => {
+    propsEdit.prop = prop;
+
+    if(propsEdit.prop.user.id !== $auth.getPayload().id) {
+      $state.go('propsIndex');
+    }
+
+  });
 
   function updateProp() {
     propsEdit.prop.$update(() => {

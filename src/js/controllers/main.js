@@ -15,7 +15,7 @@ function MainController($auth, $state, $rootScope, User) {
       });
   }
 
-  const protectedStates = ['usersEdit', 'propsEdit'];
+  const protectedStates = ['usersEdit'];
 
   function secureState(e, toState, toParams) {
     main.message = null;
@@ -25,17 +25,6 @@ function MainController($auth, $state, $rootScope, User) {
       $state.go('login');
       main.message = 'You must be logged in to go there';
     }
-
-  // function secureState(e, toState, toParams) {
-  //   main.message = null;
-  //   if((!$auth.isAuthenticated() && protectedStates.includes(toState.name)) ||
-  //   toState.name === 'usersEdit' && (parseFloat(toParams.id) !== $auth.getPayload().id)) {
-  //     e.preventDefault();
-  //     $state.go('login');
-  //     main.message = 'You must be logged in to go there';
-  //   }
-
-
 
     if ($auth.isAuthenticated()) {
       const userId = $auth.getPayload().id;

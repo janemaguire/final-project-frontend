@@ -34,6 +34,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/propsIndex.html',
       controller: 'PropsIndexController as propsIndex'
     })
+    .state('propsNew', {
+      url: '/props/new',
+      templateUrl: '/templates/propsNew.html',
+      controller: 'PropsNewController as propsNew'
+    })
     .state('propsShow', {
       url: '/props/:id',
       templateUrl: '/templates/propsShow.html',
