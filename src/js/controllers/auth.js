@@ -10,11 +10,9 @@ function RegisterController($auth, $state, user) {
   register.user = {};
   user.isLoggedIn = $auth.isAuthenticated;
 
-  if (!user.isLoggedIn()) {
-    submit();
-  } else {
-    $state.go('usersIndex');
-    // message = 'You are already logged in';
+  if (user.isLoggedIn()) {
+    const currentUserId = $auth.getPayload().id;
+    $state.go('usersShow', {id: currentUserId});
   }
 
   function submit() {

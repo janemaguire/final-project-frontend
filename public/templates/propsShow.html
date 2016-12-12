@@ -15,7 +15,10 @@
     </li>
   </ul>
   <br>
-  <button ng-if="main.isLoggedIn()" ui-sref="propsEdit({id: propsShow.user.id})" class="btn btn-primary">Edit</button>
-  <button ng-if="main.isLoggedIn()" ng-click="propsShow.delete()" class="btn btn-primary">Delete</button>
+  <button ng-show="!propsShow.isCurrentUser()" ui-sref="propsEdit({id: propsShow.prop.id})" class="btn btn-primary">Edit</button>
+  <button ng-show="!propsShow.isCurrentUser()" ng-click="propsShow.delete()" class="btn btn-primary">Delete</button>
   <br>
 </section>
+
+<!-- ng-if="propsShow.isLoggedIn()" && ng-if="propsShow.isCurrentUser()"
+ng-if="propsShow.isLoggedIn()" && ng-if="propsShow.isCurrentUser()" -->

@@ -22,6 +22,7 @@ function UsersShowController(User, $state, $auth) {
 
   usersShow.user = User.get($state.params);
 
+
   function deleteUser() {
     usersShow.user.$remove(() => {
       $state.go('usersIndex');
