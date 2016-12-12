@@ -2,6 +2,18 @@
   <br>
   <h2>{{ propsShow.prop.name }}</h2>
   <p>{{ propsShow.prop.description }}</p>
+  <p>{{ propsShow.prop.image }}</p>
+  <img ng-src="{{ propsShow.prop.image }}" alt="">
+  <p>{{ propsShow.prop.available }}</p>
+  <p>{{ propsShow.prop.user.username }}</p>
+  <p>{{ propsShow.prop.category_ids }}</p>
+  <ul>
+    <li ng-repeat="category in propsShow.prop.categories">
+      <a ui-sref="categoriesShow({ id: category.id })">
+        <p>{{ category.name }}</p>
+      </a>
+    </li>
+  </ul>
   <br>
   <button ng-if="main.isLoggedIn()" ui-sref="propsEdit({id: propsShow.user.id})" class="btn btn-primary">Edit</button>
   <button ng-if="main.isLoggedIn()" ng-click="propsShow.delete()" class="btn btn-primary">Delete</button>
