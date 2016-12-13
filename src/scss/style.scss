@@ -1,1 +1,15 @@
+.drag-drop {
+  height: 300px;
+  width: 300px;
+  background-color: green;
+  border-radius: 0px;
+  line-height: 0;
 
+  img {
+    width: 200px;
+  }
+
+  &.active {
+    background-color: grey;
+  }
+}
