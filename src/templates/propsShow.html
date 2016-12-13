@@ -15,7 +15,7 @@
     </li>
   </ul>
   <br>
-  <button ng-show="!propsShow.isCurrentUser()" ui-sref="propsEdit({id: propsShow.prop.id})" class="btn btn-primary">Edit</button>
-  <button ng-show="!propsShow.isCurrentUser()" ng-click="propsShow.delete()" class="btn btn-primary">Delete</button>
+  <button ng-show="propsShow.isCurrentUser()" ui-sref="propsEdit({id: propsShow.prop.id})" class="btn btn-primary">Edit</button>
+  <button ng-show="propsShow.isCurrentUser()" ng-click="propsShow.delete()" class="btn btn-primary">Delete</button>
   <br>
 </section>

@@ -11,42 +11,33 @@ function PropsIndexController(Prop) {
   propsIndex.all = Prop.query();
 }
 
-PropsNewController.$inject = ['Prop', '$state'];
-function PropsNewController(Prop, $state) {
+PropsNewController.$inject = ['Prop', '$state', '$auth'];
+function PropsNewController(Prop, $state, $auth) {
+
+  if(!$auth.isAuthenticated) {
+    $state.go('propsIndex');
+  }
+
+
+
+
   const propsNew = this;
   propsNew.prop = {};
 
   function create() {
     Prop.save(propsNew.prop, (prop) => {
-      console.log('hello');
-      $state.go('propsShow', { id: prop._id });
+      $state.go('propsShow', { id: prop.id });
     });
   }
   propsNew.create = create;
 }
-
-//
-// BoardsNewController.$inject = ['Board', '$state'];
-// function BoardsNewController(Board, $state) {
-//   const boardsNew = this;
-//   boardsNew.board = {};
-//   function create() {
-//     Board.save(boardsNew.board, (board) => {
-//       $state.go('boardsShow', { id: board._id });
-//     });
-//   }
-//   boardsNew.create = create;
-// }
-
-
 
 PropsShowController.$inject = ['Prop', '$state', '$auth'];
 function PropsShowController(Prop, $state, $auth) {
   const propsShow = this;
 
   function isCurrentUser() {
-    // console.log('isCurrentUser?', $auth.getPayload().id === Number($state.params.id));
-    return $auth.getPayload().id === Number($state.params.id);
+    return $auth.isAuthenticated() && propsShow.prop.$resolved && $auth.getPayload().id === propsShow.prop.user.id;
   }
 
   propsShow.isCurrentUser = isCurrentUser;

@@ -15,7 +15,7 @@ function MainController($auth, $state, $rootScope, User) {
       });
   }
 
-  const protectedStates = ['usersEdit'];
+  const protectedStates = ['usersEdit', 'propsNew', 'propsEdit'];
 
   function secureState(e, toState, toParams) {
     main.message = null;
