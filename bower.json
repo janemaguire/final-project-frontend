@@ -18,7 +18,9 @@
     "angular": "^1.5.9",
     "angular-resource": "^1.5.9",
     "angular-ui-router": "^0.3.2",
-    "satellizer": "^0.15.5"
+    "satellizer": "^0.15.5",
+    "angular-ui-event": "^1.0.0",
+    "angular-ui-map": "^0.5.0"
   },
   "devDependencies": {
     "bootstrap": "v4.0.0-alpha.5"

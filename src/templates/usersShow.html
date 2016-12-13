@@ -14,6 +14,12 @@
       </a>
     </li>
   </ul>
+  <br>
+  <!-- <section id="map" ng-controller="MapCtrl" >
+  <div ui-map="myMap" ui-options="mapOptions" class="map-canvas"></div> -->
+  <google-map class="map" user="usersShow.user"></google-map>
+  </section>
+  <br>
   <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Edit</button>
   <button ng-if="usersShow.isCurrentUser()" ng-click="usersShow.delete()" class="btn btn-primary">Delete</button>
   <br>
