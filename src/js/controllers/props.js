@@ -16,31 +16,36 @@ function PropsNewController(Prop, $state) {
   const propsNew = this;
   propsNew.prop = {};
 
-  function createProp() {
-    Prop.save(propsNew.prop, () => {
-      $state.go('propsNew');
+  function create() {
+    Prop.save(propsNew.prop, (prop) => {
+      console.log('hello');
+      $state.go('propsShow', { id: prop._id });
     });
-
-    // function submit() {
-    //   createProp()
-    //     .then(() => {
-    //       $state.go('propsIndex');
-    //     });
-    // }
-    //
-    //
-    // propsNew.submit = submit;
-
   }
-  propsNew.create = createProp;
+  propsNew.create = create;
 }
+
+//
+// BoardsNewController.$inject = ['Board', '$state'];
+// function BoardsNewController(Board, $state) {
+//   const boardsNew = this;
+//   boardsNew.board = {};
+//   function create() {
+//     Board.save(boardsNew.board, (board) => {
+//       $state.go('boardsShow', { id: board._id });
+//     });
+//   }
+//   boardsNew.create = create;
+// }
+
+
 
 PropsShowController.$inject = ['Prop', '$state', '$auth'];
 function PropsShowController(Prop, $state, $auth) {
   const propsShow = this;
 
   function isCurrentUser() {
-    console.log('isCurrentUser?', $auth.getPayload().id === Number($state.params.id));
+    // console.log('isCurrentUser?', $auth.getPayload().id === Number($state.params.id));
     return $auth.getPayload().id === Number($state.params.id);
   }
 
