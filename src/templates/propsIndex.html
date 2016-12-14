@@ -1,31 +1,22 @@
-<!-- <section>
-  <h1>Props Index</h1>
-  <h3>Search for props</h3>
-  <br>
-  <input type="text" ng-model="propsIndex.queryString" placeholder="Search...">
-  <ul class="props">
-    <li ng-repeat=" prop in propsIndex.all | filter: propsIndex.filter " class="prop-single">
-      <a ui-sref="propsShow({ id: prop.id })">
-        <h2>{{ prop.name }}</h2>
-        <img ng-src="{{ prop.image }}">
-        <h4>{{ prop.description }}</h4>
-        <p>Available from: <a ui-sref="usersShow({ id: prop.user.id })">{{ prop.user.username }}</a></p>
-    </li>
-  </ul>
-</section> -->
-
 <section>
-  <h1>Props Index</h1>
-  <h3>Search for props</h3>
+  <h1>Props</h1>
+  <p>Browse the props uploaded by our participating theatres or search for a specific item below.</p>
   <br>
   <input type="text" ng-model="propsIndex.queryString" placeholder="Search...">
-  <ul class="props">
-    <li ng-repeat=" prop in propsIndex.all | filter: propsIndex.filter " class="prop-single">
-    <div class="card">
-      <img class="card-img-top" ng-src="{{ prop.image }}" alt="Card image cap">
-      <div class="card-block">
-        <h4 class="card-title">{{ prop.name }}</h4>
-        <p class="card-text">{{ prop.description }}</p>
-        <a ui-sref="propsShow({ id: prop.id })" class="btn btn-primary">More info</a>
+  <br>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4" ng-repeat=" prop in propsIndex.all | filter: propsIndex.filter ">
+        <div class="card">
+          <img class="card-img-top img-fluid" ng-src="{{ prop.image }}" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">{{ prop.name }}</h4>
+              <p class="card-text">{{ prop.description }}</p>
+              <a ui-sref="propsShow({ id: prop.id })" class="btn btn-primary">More info</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>

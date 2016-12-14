@@ -1,14 +1,18 @@
 <section>
-  <div ng-if="main.isLoggedIn()">
-    <h3>Hello {{ main.currentUser.username }}! Welcome to Prop Swap</h3>
+
+    <h1>Welcome to Prop Swap</h1>
     <p>Prop Swap allows Off West End Theatres to borrow and lend props without the hefty hire costs. Browse by theatre, prop or category to see the props currently in store at theatres nearby. To borrow props or to list your own, simply sign up and create a profile. </p>
-    <p>What would you like to do today?</p>
-      <button ui-sref="usersIndex">Search by theatre</button>
-      <button><a ui-sref="propsIndex">Search by prop</a></button>
-      <button><a ui-sref="categoriesIndex">Search by category</a></button>
-      <button><a ui-sref="usersShow({ id: main.currentUser.id })">Edit your profile</a></button>
-      <button><a ng-click="main.logout()">Logout</a></button>
+
+
+  <div ng-if="main.isLoggedIn()">
+    <h3>Hello {{ main.currentUser.username }}! What would you like to do today?</h3>
+    <button ui-sref="usersIndex">Search by theatre</button>
+    <button ui-sref="propsIndex">Search by prop</button>
+    <button ui-sref="categoriesIndex">Search by category</button>
+    <button ui-sref="usersShow({ id: main.currentUser.id })">Edit your profile</button>
+    <button ng-click="main.logout()">Logout</button>
   </div>
+
   <div ng-if="!main.isLoggedIn()">
     <ng-include src="'templates/login.html'"></ng-include>
     <ng-include src="'templates/register.html'"></ng-include>
