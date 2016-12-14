@@ -45,22 +45,29 @@ body {
 
   button {
     margin-bottom: 20px;
+    margin-top: 10px;
     background-color: white;
-    color: yellow;
     width: 280px;
     display: block;
-    a:link {
-      color: black;
-    }
-    a:hover {
-      color: yellow;
-    }
-    a:visited {
-      color: black;
-    }
-    a:active {
-      color: yellow;
-    }
+    border: 0;
+    border-radius: 5px;
+  }
+  button:hover {
+    background-color: yellow;
+  }
+  button:active {
+      outline-color: yellow;
+  }
+  button:focus {
+      outline-color: yellow;
+  }
+
+  input {
+    width: 280px;
+    margin-bottom: 10px;
+  }
+  input:focus {
+      outline-color: yellow;
   }
 }
 
@@ -72,7 +79,7 @@ main {
   float: left;
   button {
     padding: 10px 20px;
-    margin: 20px;
+    margin: 20px 30px;
     display: inline;
   }
 
