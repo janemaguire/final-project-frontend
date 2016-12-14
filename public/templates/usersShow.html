@@ -17,7 +17,7 @@
   <br>
   <!-- <section id="map" ng-controller="MapCtrl" >
   <div ui-map="myMap" ui-options="mapOptions" class="map-canvas"></div> -->
-  <google-map class="map" user="usersShow.user"></google-map>
+  <google-map class="map" user="usersShow.user" ng-if="usersShow.user.$resolved"></google-map>
   </section>
   <br>
   <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Edit</button>

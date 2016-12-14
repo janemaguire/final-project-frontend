@@ -12,14 +12,13 @@ function googleMap($window) {
     },
     link: function($scope, element) {
       $scope.$watch('user', () => {
-        const myLatlng = new $window.google.maps.LatLng(parseFloat($scope.user.latitude),parseFloat($scope.user.longitude));
-        // const myLatlng = new $window.google.maps.LatLng(parseFloat(51.5395764),parseFloat(-0.1039495));
+        const myLatlng = new $window.google.maps.LatLng($scope.user.latitude, $scope.user.longitude);
         const map = new $window.google.maps.Map(element[0], {
           center: myLatlng,
-          zoom: 10,
+          zoom: 13,
           scrollwheel: false
         });
-        const marker = new $window.google.maps.Marker({
+        new $window.google.maps.Marker({
           position: myLatlng,
           map: map,
           animation: $window.google.maps.Animation.DROP
