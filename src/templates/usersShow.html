@@ -1,28 +1,47 @@
-<section class="main">
+<section>
+  <div class="container">
+    <div class="row">
+      <h1>{{ usersShow.user.username }}</h1>
 
-  <br>
-  <h1>{{ usersShow.user.username }}</h1>
-  <p><img ng-src="{{ usersShow.user.image }}"></p>
-  <p>{{ usersShow.user.address }}</p>
-  <p>{{ usersShow.user.phone }}</p>
-  <p>{{ usersShow.user.email }}</p>
-  <br>
+      <br>
+      <hr>
+      <br>
 
-  <google-map class="map" user="usersShow.user" ng-if="usersShow.user.$resolved"></google-map>
-  </section>
-  <br>
-  <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Edit</button>
-  <button ng-if="usersShow.isCurrentUser()" ng-click="usersShow.delete()" class="btn btn-primary">Delete</button>
-  <br>
+      <div class="col-sm-6">
+        <p>{{ usersShow.user.image }}</p>
+        <p>{{ usersShow.user.address }}</p>
+        <p>{{ usersShow.user.phone }}</p>
+        <p>{{ usersShow.user.email }}</p>
+        <br>
+        <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Add prop</button>
+        <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Edit profile</button>
+        <button ng-if="usersShow.isCurrentUser()" ng-click="usersShow.delete()" class="btn btn-primary">Delete profile</button>
+      </div>
 
-  <h1>Props at {{ usersShow.user.username }}</h1>
-  <ul>
-    <li ng-repeat="prop in usersShow.user.props">
-      <a ui-sref="propsShow({ id: prop.id })">
-        <p>{{ prop.name }}</p>
-        <img ng-src="{{ prop.image }}">
-      </a>
-    </li>
-  </ul>
+      <div class="col-sm-6">
+          <google-map class="map" user="usersShow.user" ng-if="usersShow.user.$resolved"></google-map>
+      </div>
+</section>
+<br>
+<hr>
+<br>
+<section>
+  <h2>Props from {{ usersShow.user.username }}</h2>
   <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4" ng-repeat=" prop in usersShow.user.props ">
+        <div class="card">
+          <img class="card-img-top img-fluid" ng-src="{{ prop.image }}" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">{{ prop.name }}</h4>
+              <p class="card-text">{{ prop.description }}</p>
+              <a ui-sref="propsShow({ id: prop.id })" class="btn btn-primary">More info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 </section>
