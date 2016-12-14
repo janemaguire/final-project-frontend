@@ -3,12 +3,26 @@ angular.module('finalProject')
   .controller('UsersShowController', UsersShowController)
   .controller('UsersEditController', UsersEditController);
 
+
 UsersIndexController.$inject = ['User'];
 function UsersIndexController(User) {
   const usersIndex = this;
 
+  usersIndex.queryString = '';
+
+  function filter(user) {
+    const regex = new RegExp(usersIndex.queryString, 'i');
+
+    return regex.test(user.username) || regex.test(user.image) || regex.test(user.address);
+  }
+
+  usersIndex.filter = filter;
   usersIndex.all = User.query();
 }
+
+
+
+
 
 UsersShowController.$inject = ['User', '$state', '$auth'];
 function UsersShowController(User, $state, $auth) {

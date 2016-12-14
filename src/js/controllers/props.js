@@ -4,12 +4,24 @@ angular.module('finalProject')
   .controller('PropsEditController', PropsEditController)
   .controller('PropsNewController', PropsNewController);
 
+
 PropsIndexController.$inject = ['Prop'];
-function PropsIndexController(Prop) {
+function PropsIndexController(Prop){
   const propsIndex = this;
 
+  propsIndex.queryString = '';
+
+  function filter(prop) {
+    const regex = new RegExp(propsIndex.queryString, 'i');
+
+    return regex.test(prop.name) || regex.test(prop.description) || regex.test(prop.category);
+  }
+
+  propsIndex.filter = filter;
   propsIndex.all = Prop.query();
 }
+
+
 
 PropsNewController.$inject = ['Prop', '$state', '$auth'];
 function PropsNewController(Prop, $state, $auth) {
