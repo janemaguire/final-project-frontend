@@ -25,11 +25,11 @@ function MainController($auth, $state, $rootScope, User) {
       $state.go('login');
       main.message = 'You must be logged in to go there';
     }
+  }
 
-    if ($auth.isAuthenticated()) {
-      const userId = $auth.getPayload().id;
-      main.currentUser = User.get({id: userId});
-    }
+  if ($auth.isAuthenticated()) {
+    const userId = $auth.getPayload().id;
+    main.currentUser = User.get({id: userId});
   }
 
   $rootScope.$on('$stateChangeStart', secureState);

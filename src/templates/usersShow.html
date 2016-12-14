@@ -1,26 +1,28 @@
-<section class = "show">
+<section class="main">
+
   <br>
-  <h2>{{ usersShow.user.username }}</h2>
+  <h1>{{ usersShow.user.username }}</h1>
   <p><img ng-src="{{ usersShow.user.image }}"></p>
   <p>{{ usersShow.user.address }}</p>
   <p>{{ usersShow.user.phone }}</p>
   <p>{{ usersShow.user.email }}</p>
   <br>
-  <h4>All props</h4>
-  <ul>
-    <li ng-repeat="prop in usersShow.user.props">
-      <a ui-sref="propsShow({ id: prop.id })">
-        <p>{{ prop.name }}</p>
-      </a>
-    </li>
-  </ul>
-  <br>
-  <!-- <section id="map" ng-controller="MapCtrl" >
-  <div ui-map="myMap" ui-options="mapOptions" class="map-canvas"></div> -->
+
   <google-map class="map" user="usersShow.user" ng-if="usersShow.user.$resolved"></google-map>
   </section>
   <br>
   <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Edit</button>
   <button ng-if="usersShow.isCurrentUser()" ng-click="usersShow.delete()" class="btn btn-primary">Delete</button>
+  <br>
+
+  <h1>Props at {{ usersShow.user.username }}</h1>
+  <ul>
+    <li ng-repeat="prop in usersShow.user.props">
+      <a ui-sref="propsShow({ id: prop.id })">
+        <p>{{ prop.name }}</p>
+        <img ng-src="{{ prop.image }}">
+      </a>
+    </li>
+  </ul>
   <br>
 </section>

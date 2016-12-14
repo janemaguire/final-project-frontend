@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .drag-drop {
   height: 300px;
   width: 300px;
@@ -17,4 +21,67 @@
 .map {
   height: 300px;
   width: 300px;
+}
+
+body {
+  background-color: yellow;
+  .navbar {
+    margin-left: 340px;
+    background-color: black;
+    color: white;
+  }
+}
+
+.side {
+  width: 340px;
+  height: 100vh;
+  overflow: scroll;
+  float: left;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  position: static;
+  display: inline-block;
+
+  button {
+    margin-bottom: 20px;
+    background-color: white;
+    color: yellow;
+    width: 280px;
+    display: block;
+    a:link {
+      color: black;
+    }
+    a:hover {
+      color: yellow;
+    }
+    a:visited {
+      color: black;
+    }
+    a:active {
+      color: yellow;
+    }
+  }
+}
+
+main {
+  margin-left: 20px;
+  height: 100vh;
+  overflow: scroll;
+  width: calc(100% - 360px);
+  float: left;
+
+
+  ul {
+    list-style-type: none;
+  }
+
+  h1{
+    margin-bottom: 30px;
+  }
+}
+
+img {
+  max-width: 200px;
+  border: 5px black solid;
 }

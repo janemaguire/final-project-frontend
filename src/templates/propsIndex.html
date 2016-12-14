@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
   <h1>Props Index</h1>
   <h3>Search for props</h3>
   <br>
@@ -12,15 +12,20 @@
         <p>Available from: <a ui-sref="usersShow({ id: prop.user.id })">{{ prop.user.username }}</a></p>
     </li>
   </ul>
-</section>
-  <!-- <ul>
-    <li ng-repeat="prop in propsIndex.all">
-      <a ui-sref="propsShow({ id: prop.id })">
-        <h2>{{ prop.name }}</h2>
-      </a>
-      <img ng-src="{{ prop.image }}">
-      <h4>{{ prop.description }}</h4>
-      <p>Available from: <a ui-sref="usersShow({ id: prop.user.id })">{{ prop.user.username }}</a></p>
+</section> -->
 
-    </li>
-  </ul> -->
+<section>
+  <h1>Props Index</h1>
+  <h3>Search for props</h3>
+  <br>
+  <input type="text" ng-model="propsIndex.queryString" placeholder="Search...">
+  <ul class="props">
+    <li ng-repeat=" prop in propsIndex.all | filter: propsIndex.filter " class="prop-single">
+    <div class="card">
+      <img class="card-img-top" ng-src="{{ prop.image }}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{ prop.name }}</h4>
+        <p class="card-text">{{ prop.description }}</p>
+        <a ui-sref="propsShow({ id: prop.id })" class="btn btn-primary">More info</a>
+      </div>
+    </div>

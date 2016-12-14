@@ -30,9 +30,6 @@ function PropsNewController(Prop, $state, $auth) {
     $state.go('propsIndex');
   }
 
-
-
-
   const propsNew = this;
   propsNew.prop = {};
 
