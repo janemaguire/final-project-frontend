@@ -8,12 +8,16 @@
 
   <div class="container">
     <div class="row">
-    <div class="col-sm-4" ng-repeat=" user in usersIndex.all | filter: usersIndex.filter ">
-    <div class="card">
-      <img class="card-img-top img-fluid" ng-src="{{ user.image }}">
-      <div class="card-block">
-        <h4 class="card-title">{{ user.username }}</h4>
-        <p class="card-text">{{ user.address }}</p>
-        <a ui-sref="usersShow({ id: user.id })" class="btn btn-primary">More info</a>
+      <div class="card-columns">
+        <div class="card" ng-repeat=" user in usersIndex.all | filter: usersIndex.filter ">
+          <img class="card-img-top img-fluid" ng-src="{{user.image.image.url}}">
+          <div class="card-block">
+            <h4 class="card-title">{{ user.username }}</h4>
+            <p class="card-text">{{ user.address }}</p>
+            <a ui-sref="usersShow({ id: user.id })" class="btn btn-primary">More info</a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</section>

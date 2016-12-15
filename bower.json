@@ -20,9 +20,14 @@
     "angular-ui-router": "^0.3.2",
     "satellizer": "^0.15.5",
     "angular-ui-event": "^1.0.0",
-    "angular-ui-map": "^0.5.0"
+    "angular-ui-map": "^0.5.0",
+    "angular-masonry": "^0.16.0",
+    "masonry": "^4.1.1"
   },
   "devDependencies": {
     "bootstrap": "v4.0.0-alpha.5"
+  },
+  "resolutions": {
+    "outlayer": "^2.1.0"
   }
 }

@@ -1,17 +1,18 @@
 <section>
   <div class="container">
-    <div class="row">
       <h1>{{ usersShow.user.username }}</h1>
+    </div>
 
-      <br>
-      <hr>
-      <br>
-
+  <div class="container">
+    <div class="row">
       <div class="col-sm-6">
-        <p>{{ usersShow.user.image }}</p>
-        <p>{{ usersShow.user.address }}</p>
-        <p>{{ usersShow.user.phone }}</p>
-        <p>{{ usersShow.user.email }}</p>
+        <img ng-src="{{ usersShow.user.image.image.url }}">
+        <br>
+
+        <p>{{ usersShow.user.address }}<br>
+            {{ usersShow.user.phone }}<br>
+            {{ usersShow.user.email }}</p>
+
         <br>
         <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Add prop</button>
         <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Edit profile</button>
@@ -21,10 +22,10 @@
       <div class="col-sm-6">
           <google-map class="map" user="usersShow.user" ng-if="usersShow.user.$resolved"></google-map>
       </div>
+    </div>
+  </div>
 </section>
-<br>
-<hr>
-<br>
+
 <section>
   <h2>Props from {{ usersShow.user.username }}</h2>
   <br>

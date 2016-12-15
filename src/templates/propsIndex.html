@@ -8,8 +8,8 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-sm-4" ng-repeat=" prop in propsIndex.all | filter: propsIndex.filter ">
-        <div class="card">
+      <div class="card-columns">
+        <div class="card" ng-repeat=" prop in propsIndex.all | filter: propsIndex.filter ">
           <img class="card-img-top img-fluid" ng-src="{{ prop.image }}">
             <div class="card-block">
               <h4 class="card-title">{{ prop.name }}</h4>
