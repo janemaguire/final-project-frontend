@@ -1,22 +1,37 @@
 <section>
 
-  <h1>{{ propsShow.prop.name }}</h1>
-
-  <br>
-  <hr>
-  <br>
+  <div class="container">
+    <h1>{{ propsShow.prop.name }}</h1>
+  </div>
 
   <div class="prop-show-left">
     <img ng-src="{{ propsShow.prop.image }}">
   </div>
 
-  <div class="prop-show-right">
-    <p>{{ propsShow.prop.description }}</p>
-    <p>Available: {{ propsShow.prop.available }}</p>
-    <p>Held by: <a ui-sref="usersShow({ id: propsShow.prop.user.id })">{{ propsShow.prop.user.username }}</a></p>
-    <p>Categories:
-      <a ng-repeat="category in propsShow.prop.categories" ui-sref="categoriesShow({ id: category.id })">{{ category.name }}, </a>
-    </p>
+  <div class="container">
+    <div class="prop-show-right">
+      <p>
+        <strong>Description: </strong>
+        <br>
+        {{ propsShow.prop.description }}
+      </p>
+      <p>
+        <strong>Available: </strong>
+        <br>
+        {{ propsShow.prop.available }}
+      </p>
+      <p>
+        <strong>Categories:</strong>
+        <br>
+        <span ng-repeat="category in propsShow.prop.categories">
+          <a ui-sref="categoriesShow({ id: category.id })">{{ category.name }}</a>,
+        </span>
+      <p>
+        <strong>Held by: </strong>
+        <br>
+        <button class="btn btn-primary" ui-sref="usersShow({ id: propsShow.prop.user.id })">{{ propsShow.prop.user.username }}</button>
+      </p>
+    </div>
   </div>
 
   <br>
@@ -24,4 +39,4 @@
   <button ng-show="propsShow.isCurrentUser()" ng-click="propsShow.delete()" class="btn btn-primary">Delete prop</button>
   <br>
 
-  </section>
+</section>
