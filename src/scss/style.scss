@@ -51,7 +51,7 @@ body {
   button {
     margin-bottom: 20px;
     margin-top: 10px;
-    background-color: darkgrey;
+    background-color: silver;
     color: black;
     width: 280px;
     display: block;
@@ -64,7 +64,7 @@ body {
       outline-color: yellow;
   }
   button:focus {
-      outline-color: yellow;
+      outline-color: white;
   }
 
   input {
@@ -72,7 +72,7 @@ body {
     margin-bottom: 10px;
   }
   input:focus {
-      outline-color: yellow;
+      outline-color: white;
   }
 }
 

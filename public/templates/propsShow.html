@@ -18,7 +18,8 @@
       <p>
         <strong>Available: </strong>
         <br>
-        {{ propsShow.prop.available }}
+        <span ng-if="propsShow.prop.available">Yes!</span>
+        <span ng-if="!propsShow.prop.available">No, sorry</span>
       </p>
       <p>
         <strong>Categories:</strong>
