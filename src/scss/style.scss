@@ -83,17 +83,12 @@ main {
   overflow: scroll;
   width: calc(100% - 360px);
   float: left;
+  text-align: center;
 
   .container {
     border-bottom: 5px black solid;
     margin: 40px 10px;
   }
-
-  .buttons {
-    margin-bottom: 20px;
-    margin-right: 20px;
-  }
-
 
   form {
     input {
@@ -113,7 +108,10 @@ main {
     border: none;
     border-radius: 0px;
     color: yellow;
+    margin: 10px;
   }
+
+
 
   label {
     margin: 0;
@@ -159,6 +157,8 @@ main {
       max-width: 450px;
       border: 3px black solid;
     }
+  .prop-show-right {
+    text-align: left;
   }
 }
 

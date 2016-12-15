@@ -49,11 +49,6 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/propsEdit.html',
       controller: 'PropsEditController as propsEdit'
     })
-    .state('categoriesIndex', {
-      url: '/categories',
-      templateUrl: '/templates/categoriesIndex.html',
-      controller: 'CategoriesIndexController as categoriesIndex'
-    })
     .state('categoriesShow', {
       url: '/categories/:id',
       templateUrl: '/templates/categoriesShow.html',
