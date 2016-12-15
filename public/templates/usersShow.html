@@ -14,9 +14,11 @@
             {{ usersShow.user.email }}</p>
 
         <br>
-        <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Add prop</button>
-        <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Edit profile</button>
-        <button ng-if="usersShow.isCurrentUser()" ng-click="usersShow.delete()" class="btn btn-primary">Delete profile</button>
+        <div class="buttons">
+          <button ng-if="usersShow.isCurrentUser()" ui-sref="propsNew" class="btn btn-primary">Add prop</button>
+          <button ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({id: usersShow.user.id})" class="btn btn-primary">Edit profile</button>
+          <button ng-if="usersShow.isCurrentUser()" ng-click="usersShow.delete()" class="btn btn-primary">Delete profile</button>
+        </div>
       </div>
 
       <div class="col-sm-6">

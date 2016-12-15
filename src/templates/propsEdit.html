@@ -1,40 +1,39 @@
-<section class="edit">
-  <form ng-submit="propsEdit.update()">
-    <div>
-      <label>Name</label>
-      <input type="text" name="name" placeholder="Name" ng-model="propsEdit.prop.name" class="u-full-width">
-    </div>
-    <div>
-      <label>Description</label>
-      <input type="text" name="description" placeholder="Description" ng-model="propsEdit.prop.description" class="u-full-width">
-    </div>
-    <div>
-      <label>Image</label>
-      <input type="text" name="image" placeholder="Image" ng-model="propsEdit.prop.image" class="u-full-width">
-    </div>
-    <div>
-      <label>Available</label>
-      <input type="checkbox" name="available" ng-model="propsEdit.prop.available">
-    </div>
-    <div>
-      <label>Categories</label>
-      <input type="checkbox" name="available" ng-model="propsEdit.prop.categories">
-    </div>
-    <div>
-      <label ng-repeat="category in propsEdit.categories">
-        <input
-          type="checkbox"
-          name="categoryIds[]"
-          value="{{category.id}}"
-          ng-checked="propsEdit.prop.category_ids.indexOf(category.id) > -1"
-          ng-click="propsEdit.toggleSelection(category.id)"
-        > {{category.name}}
-      </label>
-    </div>
-    <div>
-      <drag-drop base64="propsNew.prop.base64"></drag-drop>
-    </div>
+<div class="container">
+  <h1>Edit your prop</h1>
+</div>
+
+<form ng-submit="propsEdit.update()">
+  <div>
+    <label>Name of item</label>
     <br>
-    <button class="btn btn-primary">Update</button>
-  </form>
-</section>
+    <input type="text" name="name" placeholder="Name" ng-model="propsEdit.prop.name" class="u-full-width">
+  </div>
+  <div>
+    <label>Description</label>
+    <br>
+    <input type="text" name="description" placeholder="Description" ng-model="propsEdit.prop.description" class="u-full-width">
+  </div>
+  <div>
+    <label>Categories</label>
+    <br>
+    <input type="checkbox" name="available" ng-model="propsEdit.prop.categories">
+  </div>
+  <div>
+    <label ng-repeat="category in propsEdit.categories">
+      <input
+        type="checkbox"
+        name="categoryIds[]"
+        value="{{category.id}}"
+        ng-checked="propsEdit.prop.category_ids.indexOf(category.id) > -1"
+        ng-click="propsEdit.toggleSelection(category.id)"
+      > {{category.name}}
+    </label>
+  </div>
+  <div>
+    <label>Image</label>
+    <br>
+    <drag-drop base64="propsNew.prop.base64"></drag-drop>
+  </div>
+  <br>
+  <button class="btn btn-primary">Update</button>
+</form>

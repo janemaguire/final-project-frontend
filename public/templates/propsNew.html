@@ -1,22 +1,47 @@
-<form ng-submit="propsNew.create()">
+<div class="container">
+  <h1>Add a prop</h1>
+
+</div>
+
+
+<form class="form" ng-submit="propsNew.create()">
   <div>
-    <label>Name</label>
+    <label>Name of item</label>
+    <br>
     <input type="text" placeholder="Name" ng-model="propsNew.prop.name">
   </div>
   <div>
-    <label>Image</label>
-    <input type="text" placeholder="Image" ng-model="propsNew.prop.image">
-  </div>
-  <div>
     <label>Description</label>
+    <br>
     <input type="text" placeholder="Description" ng-model="propsNew.prop.description">
   </div>
   <div>
-    <label>Available</label>
+    <label>Categories</label>
+    <br>
+    <input type="checkbox" name="available" ng-model="propsNew.prop.categories">
+  </div>
+  <div>
+    <label ng-repeat="category in propsNew.categories">
+      <input
+        class="checkbox"
+        type="checkbox"
+        name="categoryIds[]"
+        value="{{category.id}}"
+        ng-checked="propsNew.prop.categories.indexOf(category.id) > -1"
+        ng-click="propsNew.toggleSelection(category.id)"
+      > {{category.name}}
+    </label>
+  </div>
+  <div>
+    <label>Currently available?</label>
+    <br>
     <input type="checkbox" name="available" ng-model="propsNew.prop.available">
   </div>
   <div>
+    <label>Upload an image</label>
+    <br>
     <drag-drop base64="propsNew.prop.base64"></drag-drop>
   </div>
-  <button>Create</button>
+  <br>
+  <button class="btn btn-primary">Create</button>
 </form>
