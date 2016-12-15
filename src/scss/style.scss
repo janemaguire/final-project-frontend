@@ -90,6 +90,12 @@ main {
     margin: 40px 10px;
   }
 
+  .drag-drop {
+    height: 300px;
+    width: 500px;
+    margin: 0 auto;
+  }
+
   form {
     input {
       margin: 10px 0px 20px 0px;
@@ -97,9 +103,6 @@ main {
       height: 40px;
       background-color: yellow;
       border: 2px solid black;
-    }
-    .checkbox {
-      background-color: yellow;
     }
   }
 
@@ -179,4 +182,10 @@ h2 {
 
 label {
   text-transform: uppercase;
+  }
+}
+
+input[type="checkbox"] {
+  width: 30px;
+  vertical-align: baseline;
 }

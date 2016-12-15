@@ -18,12 +18,11 @@
   <div>
     <label>Categories</label>
     <br>
-    <input type="checkbox" name="available" ng-model="propsNew.prop.categories">
+    <!-- <input type="checkbox" name="available" ng-model="propsNew.prop.categories"> -->
   </div>
   <div>
     <label ng-repeat="category in propsNew.categories">
       <input
-        class="checkbox"
         type="checkbox"
         name="categoryIds[]"
         value="{{category.id}}"
