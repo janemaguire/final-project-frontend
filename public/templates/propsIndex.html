@@ -1,15 +1,16 @@
 <section>
-  <h1>Props</h1>
-  <p>Browse the props uploaded by our participating theatres or search for a specific item below.</p>
-  <br>
-  <input type="text" ng-model="propsIndex.queryString" placeholder="Search...">
-  <br>
-  <hr>
+  <div class="container">
+    <h1>Props</h1>
+    <h3>Browse the props uploaded by our participating theatres or search for a specific item below.</h3>
+
+    <input type="text" ng-model="propsIndex.queryString" placeholder="Search by prop name...">
+    <br>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-sm-4" ng-repeat=" prop in propsIndex.all | filter: propsIndex.filter ">
         <div class="card">
-          <img class="card-img-top img-fluid" ng-src="{{ prop.image }}" alt="Card image cap">
+          <img class="card-img-top img-fluid" ng-src="{{ prop.image }}">
             <div class="card-block">
               <h4 class="card-title">{{ prop.name }}</h4>
               <p class="card-text">{{ prop.description }}</p>
