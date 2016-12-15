@@ -1,12 +1,15 @@
 <section>
-
+  <div>
     <h2>Welcome to<br>
-      <strong>Prop</strong>Swap</h2>
-    <p>Prop Swap allows Off West End Theatres to borrow and lend props without the hefty hire costs. Browse by theatre, prop or category to see the props currently in store at theatres nearby. To borrow props or to list your own, simply sign up and create a profile. </p>
-
+    <strong>Prop</strong>Swap</h2>
+    <p>Prop Swap allows Off West End Theatres to borrow and lend props without the hefty hire costs. Browse by theatre, prop or category to see the props currently in store at theatres nearby. To borrow props or to list your own, simply sign up and create a profile.</p>
+  </div>
 
   <div ng-if="main.isLoggedIn()">
-    <h3>Hello {{ main.currentUser.username }}! What would you like to do today?</h3>
+    <h3>You are logged in as {{ main.currentUser.username }}.</h3>
+    <br>
+    <p>What would you like to do today?</p>
+    <br>
     <button ui-sref="usersIndex">Search by theatre</button>
     <button ui-sref="propsIndex">Search by prop</button>
     <button ui-sref="categoriesIndex">Search by category</button>
@@ -18,4 +21,5 @@
     <ng-include src="'templates/login.html'"></ng-include>
     <ng-include src="'templates/register.html'"></ng-include>
   </div>
+
 </section>

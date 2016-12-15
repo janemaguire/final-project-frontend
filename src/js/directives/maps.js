@@ -16,6 +16,7 @@ function googleMap($window) {
         const map = new $window.google.maps.Map(element[0], {
           center: myLatlng,
           zoom: 13,
+          styles: [{"featureType":"all","elementType":"all","stylers":[{"saturation":-100},{"gamma":0.5}]}],
           scrollwheel: false
         });
         new $window.google.maps.Marker({
