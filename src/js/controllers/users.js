@@ -13,7 +13,7 @@ function UsersIndexController(User) {
   function filter(user) {
     const regex = new RegExp(usersIndex.queryString, 'i');
 
-    return regex.test(user.username) || regex.test(user.image) || regex.test(user.address);
+    return regex.test(user.username);
   }
 
   usersIndex.filter = filter;

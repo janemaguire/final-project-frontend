@@ -1,4 +1,4 @@
 <section>
-  <h1>Categories Index</h1>
-    <button ng-repeat="category in categoriesIndex.all" ui-sref="categoriesShow({ id: category.id })">{{ category.name }}</button>
+  <p>categories</p>
+    <button class="btn btn-primary" ng-repeat="category in categoriesIndex.all" ui-sref="categoriesShow({ id: category.id })">{{ category.name }}</button>
 </section>
