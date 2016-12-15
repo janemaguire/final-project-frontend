@@ -23,14 +23,15 @@ function PropsIndexController(Prop){
 
 
 
-PropsNewController.$inject = ['Prop', '$state', '$auth'];
-function PropsNewController(Prop, $state, $auth) {
+PropsNewController.$inject = ['Prop', '$state', '$auth', 'Category'];
+function PropsNewController(Prop, $state, $auth, Category) {
 
   if(!$auth.isAuthenticated) {
     $state.go('propsIndex');
   }
 
   const propsNew = this;
+  propsNew.categories = Category.query();
   propsNew.prop = {};
 
   function create() {
@@ -38,7 +39,18 @@ function PropsNewController(Prop, $state, $auth) {
       $state.go('propsShow', { id: prop.id });
     });
   }
+
+  function toggleSelection(id) {
+    var index = propsNew.prop.category_ids.indexOf(id);
+    if (index > -1) { // is currently selected
+      propsNew.prop.category_ids.splice(index, 1);
+    } else { // is newly selected
+      propsNew.prop.category_ids.push(id);
+    }
+  }
+
   propsNew.create = create;
+  propsNew.toggleSelection = toggleSelection;
 }
 
 PropsShowController.$inject = ['Prop', '$state', '$auth'];

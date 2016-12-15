@@ -7,10 +7,9 @@
     <br>
   </div>
 
-  <div class="container">
-    <!-- <ng-include src="'templates/categoriesIndex.html'"></ng-include> -->
+  <div class="container" ng-controller="CategoriesIndexController as categoriesIndex">
 
-    <!-- <button class="btn btn-primary" ng-repeat="category in categoriesIndex.all" ui-sref="categoriesShow({ id: category.id })">{{ category.name }}</button> -->
+    <button class="btn btn-primary" class="buttons" ng-repeat="category in categoriesIndex.all" ui-sref="categoriesShow({ id: category.id })">{{ category.name }}</button>
 
 
   </div>
