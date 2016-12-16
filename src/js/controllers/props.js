@@ -41,6 +41,7 @@ function PropsNewController(Prop, $state, $auth, Category) {
   }
 
   function toggleSelection(id) {
+    propsNew.prop.category_ids = propsNew.prop.category_ids || [];
     var index = propsNew.prop.category_ids.indexOf(id);
     if (index > -1) { // is currently selected
       propsNew.prop.category_ids.splice(index, 1);
