@@ -8,6 +8,7 @@ This was my final project for the General Assembly Web Development Immersive cou
 
 ###[Launch Prop Swap](https://prop-swap.herokuapp.com/)
 To see the features available to logged in users you can use the test details:
+
 email: arcolatheatre@propswap.com
 password: password
 
