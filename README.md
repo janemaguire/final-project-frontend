@@ -12,12 +12,12 @@ password: password
 ### Technologies used
 AngularJS | BCrypt | Bootstrap | Gulp | HTML | Javascript | JWT | Ruby | Ruby on Rails | Satellizer | SCSS
 
-![](./images/propswap1.png)
+![](/src/images/propswap1.png)
 
 ###Approach taken
 
 
 
-![](./images/propswap2.png)
+![](/src/images/propswap2.png)
 
 ####Challenges
